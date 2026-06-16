@@ -1,0 +1,79 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <radialGradient id="planetFill" cx="38%" cy="35%" r="60%">
+      <stop offset="0%"   stop-color="#3A3529" stop-opacity="1"/>
+      <stop offset="45%"  stop-color="#1E1C17" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#0E0D0A" stop-opacity="1"/>
+    </radialGradient>
+    <radialGradient id="planetShine" cx="35%" cy="30%" r="55%">
+      <stop offset="0%"   stop-color="#8A8472" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#8A8472" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="planetClip">
+      <circle cx="200" cy="195" r="108"/>
+    </clipPath>
+    <linearGradient id="ringFront" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#5C5648" stop-opacity="0"/>
+      <stop offset="25%"  stop-color="#5C5648" stop-opacity="0.55"/>
+      <stop offset="50%"  stop-color="#8A8472" stop-opacity="0.7"/>
+      <stop offset="75%"  stop-color="#5C5648" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#5C5648" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ringBack" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#2B281F" stop-opacity="0"/>
+      <stop offset="25%"  stop-color="#2B281F" stop-opacity="0.25"/>
+      <stop offset="50%"  stop-color="#3A3529" stop-opacity="0.32"/>
+      <stop offset="75%"  stop-color="#2B281F" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2B281F" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Stars scattered -->
+  <circle cx="42"  cy="52"  r="1.2" fill="#0E0D0A" opacity="0.35"/>
+  <circle cx="88"  cy="28"  r="0.8" fill="#0E0D0A" opacity="0.25"/>
+  <circle cx="135" cy="68"  r="1.0" fill="#0E0D0A" opacity="0.3"/>
+  <circle cx="22"  cy="148" r="0.7" fill="#0E0D0A" opacity="0.2"/>
+  <circle cx="62"  cy="310" r="1.1" fill="#0E0D0A" opacity="0.28"/>
+  <circle cx="28"  cy="355" r="0.7" fill="#0E0D0A" opacity="0.2"/>
+  <circle cx="110" cy="370" r="1.0" fill="#0E0D0A" opacity="0.25"/>
+  <circle cx="310" cy="38"  r="1.3" fill="#0E0D0A" opacity="0.3"/>
+  <circle cx="358" cy="72"  r="0.8" fill="#0E0D0A" opacity="0.22"/>
+  <circle cx="378" cy="155" r="1.0" fill="#0E0D0A" opacity="0.28"/>
+  <circle cx="345" cy="330" r="1.1" fill="#0E0D0A" opacity="0.3"/>
+  <circle cx="368" cy="368" r="0.8" fill="#0E0D0A" opacity="0.2"/>
+  <circle cx="290" cy="355" r="1.4" fill="#0E0D0A" opacity="0.32"/>
+  <circle cx="172" cy="22"  r="0.9" fill="#0E0D0A" opacity="0.22"/>
+  <circle cx="240" cy="15"  r="1.1" fill="#0E0D0A" opacity="0.28"/>
+
+  <!-- Ring behind planet -->
+  <ellipse cx="200" cy="258" rx="170" ry="38" stroke="url(#ringBack)" stroke-width="12" clip-path="url(#ringBackClip)"/>
+  <!-- clip the back ring so only the part behind the planet shows -->
+  <g clip-path="url(#planetClip)" transform="translate(0,63)">
+    <!-- nothing — the planet will cover front portion -->
+  </g>
+
+  <!-- Ring back half (below planet equator, hidden behind planet) -->
+  <clipPath id="ringBackClip">
+    <!-- show only top half of ellipse = behind planet -->
+    <rect x="0" y="0" width="400" height="258"/>
+  </clipPath>
+
+  <!-- Planet body -->
+  <circle cx="200" cy="195" r="108" fill="url(#planetFill)"/>
+  <!-- Subtle surface bands -->
+  <ellipse cx="200" cy="175" rx="107" ry="14" stroke="#2B281F" stroke-width="1" stroke-opacity="0.45" clip-path="url(#planetClip)"/>
+  <ellipse cx="200" cy="198" rx="107" ry="10" stroke="#2B281F" stroke-width="0.8" stroke-opacity="0.3" clip-path="url(#planetClip)"/>
+  <ellipse cx="200" cy="218" rx="107" ry="12" stroke="#3A3529" stroke-width="1" stroke-opacity="0.35" clip-path="url(#planetClip)"/>
+  <!-- Shine -->
+  <circle cx="200" cy="195" r="108" fill="url(#planetShine)"/>
+  <!-- Terminator shadow (dark crescent on right) -->
+  <path d="M200,87 A108,108 0 0,1 200,303 A60,108 0 0,0 200,87 Z" fill="#0E0D0A" fill-opacity="0.38" clip-path="url(#planetClip)"/>
+
+  <!-- Ring front half (in front of planet) -->
+  <clipPath id="ringFrontClip">
+    <rect x="0" y="258" width="400" height="142"/>
+  </clipPath>
+  <ellipse cx="200" cy="258" rx="170" ry="38" stroke="url(#ringFront)" stroke-width="14" clip-path="url(#ringFrontClip)"/>
+  <!-- Thinner inner ring detail -->
+  <ellipse cx="200" cy="258" rx="142" ry="30" stroke="#8A8472" stroke-width="3" stroke-opacity="0.18" clip-path="url(#ringFrontClip)"/>
+</svg>
